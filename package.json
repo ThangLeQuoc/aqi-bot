@@ -10,5 +10,8 @@
     "aqi"
   ],
   "author": "ThangLeQuoc <silverhair.guy@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^3.5.0"
+  }
 }
