@@ -1,0 +1,14 @@
+{
+  "name": "aqi-calculator",
+  "version": "1.0.0",
+  "description": "AQI Calculator provide a detail result from AQI Calculation. It also support Nowcast.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aqi"
+  ],
+  "author": "ThangLeQuoc <silverhair.guy@gmail.com>",
+  "license": "ISC"
+}
