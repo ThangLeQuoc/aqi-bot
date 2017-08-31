@@ -4,7 +4,7 @@
   "description": "AQI Calculator provide a detail result from AQI Calculation. It also support Nowcast.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "aqi"
@@ -13,6 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.1",
-    "mocha": "^3.5.0"
+    "chalk": "^2.1.0",
+    "mocha": "^3.5.0",
+    "q": "^1.5.0"
   }
 }
