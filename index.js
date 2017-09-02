@@ -11,16 +11,6 @@ let breakpoints = undefined;
 let generalMessages = undefined;
 let specificMessages = undefined;
 
-let response = {
-  pollutant: undefined,
-  concentration: undefined,
-  aqi: undefined,
-  category: undefined,
-  generalMessage: undefined,
-  healthEffectsStatements: undefined,
-  guidanceStatement: undefined
-}
-
 
 /**
  * Import modules
