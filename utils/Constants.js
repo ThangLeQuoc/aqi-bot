@@ -14,7 +14,18 @@ let messages = {
   }
 }
 
+let category = {
+  NONE: "None",
+  GOOD: "Good",
+  MODERATE: "Moderate",
+  UNHEALTHY_FOR_SENSITIVE_GROUPS: "Unhealthy for Sensitive Groups",
+  UNHEALTHY: "Unhealthy",
+  VERY_UNHEALTHY: "Very Unhealthy",
+  HAZARDOUS: "Hazardous"
+}
+
 module.exports = {
   POLLUTANT_TYPE: pollutantCodes,
-  MESSAGES: messages
+  MESSAGES: messages,
+  AQI_CATEGORY: category
 }

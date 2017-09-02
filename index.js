@@ -26,6 +26,7 @@ let response = {
  * Import modules
  */
 let pollutantBreakpointFinder = require('./utils/PollutantBreakpointFinder');
+let messageService = require('./utils/MessageService');
 let calculator = require('./utils/Calculator');
 let constants = require('./utils/Constants');
 
@@ -44,12 +45,23 @@ class AQICalculator {
       pollutantBreakpointFinder.getConcentrationRangeWithAvgConcentration(pollutantCode, concentration, breakpoints).then((breakpointIndex) => {
         targetBreakpointIndex = breakpointIndex;
         let aqi = calculator.calculateAQI(concentration, targetBreakpointIndex);
-
         return aqi;
       }, (err) => {
         reject(err);
       }).then((aqi) => {
+        let generalMessage = messageService.getGeneralMessage(aqi, generalMessages);
+        let specificMessage = messageService.getSpecificMessage(pollutantCode, aqi, specificMessages);
         
+        let result = {
+          pollutant: pollutantCode,
+          concentration: concentration,
+          aqi: aqi,
+          category: generalMessage.category,
+          generalMessage: generalMessage.message,
+          healthEffectsStatements: specificMessage.healthEffectsStatements,
+          guidanceStatement: specificMessage.guidanceStatement
+        }
+        resolve(result);
       });
     });
   }
