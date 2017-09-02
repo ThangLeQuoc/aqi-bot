@@ -18,13 +18,18 @@ let specificMessages = undefined;
 let pollutantBreakpointFinder = require('./utils/PollutantBreakpointFinder');
 let constants = require('./utils/Constants');
 
+
+let calculateAQI = function(){
+
+}
+
+
 class AQICalculator {
   constructor() {
     // TODO: refactor reading file to asynchronous function
     breakpoints = JSON.parse(fs.readFileSync('./resources/aqi-breakpoint.json', 'utf8'));
-    generalMessages = fs.readFileSync('./resources/aqi-general-messages.json', 'utf8');
-    specificMessages = fs.readFileSync('./resources/aqi-specific-messages.json', 'utf8');
-    console.log(chalk.blue('Finish reading files'));
+    generalMessages = JSON.parse(fs.readFileSync('./resources/aqi-general-messages.json', 'utf8'));  
+    specificMessages = JSON.parse(fs.readFileSync('./resources/aqi-specific-messages.json', 'utf8'));
   }
 
   getRegularAQIResult(pollutantCode, concentration) {
@@ -32,14 +37,14 @@ class AQICalculator {
     return Q.Promise((resolve, reject) => {
       pollutantBreakpointFinder.getConcentrationRangeWithAvgConcentration(pollutantCode, concentration, breakpoints).then((breakpointIndex) => {
         targetBreakpointIndex = breakpointIndex;
-        resolve('done');
+        
       }, (err) => {
         reject(err);
       });
-    })
+    });
   }
 
-  getNowcastAQIResult(pollutantCode, concentration) {
+  getNowcastAQIResult(pollutantCode, concentrations) {
 
   }
 }
