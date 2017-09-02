@@ -1,6 +1,6 @@
 let Q = require('q');
 
-let targetBreakpoint;
+
 let targetConcentrationRange;
 let constants = require('./Constants');
 
@@ -15,6 +15,7 @@ module.exports = {
    */
   getConcentrationRangeWithAvgConcentration(pollutantCode, concentration, breakpoints) {
     return new Q.Promise((resolve, reject) => {
+      let targetBreakpoint;
       breakpoints.forEach((breakpoint) => {
         if (breakpoint.code === pollutantCode) {
           targetBreakpoint = breakpoint;

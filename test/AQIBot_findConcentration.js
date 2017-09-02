@@ -9,9 +9,9 @@ let pollutantBreakpointFinder = require('../utils/PollutantBreakpointFinder');
 let constants = require('../utils/Constants');
 let breakpoints = JSON.parse(fs.readFileSync('./resources/aqi-breakpoint.json', 'utf8'));
 
-describe('AQICalculator - Find concentration', () => {
+describe('AQIBot - Find concentration', () => {
   it('should throw invalid pollutant code message when put a pollutant code which is not in the breakpoints list', () => {
-    return AQIBot.AQICalculator.getAQIResult("PM101", 12).catch((message) => {
+    return AQIBot.AQICalculator.getAQIResult("none", 12).catch((message) => {
       expect(message).to.equal(constants.MESSAGES.INVALID_MESSAGES.INVALID_POLLUTANT_CODE);
     });
   });

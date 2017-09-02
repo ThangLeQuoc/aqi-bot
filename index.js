@@ -11,6 +11,16 @@ let breakpoints = undefined;
 let generalMessages = undefined;
 let specificMessages = undefined;
 
+let response = {
+  pollutant: undefined,
+  concentration: undefined,
+  aqi: undefined,
+  category: undefined,
+  generalMessage: undefined,
+  healthEffectsStatements: undefined,
+  guidanceStatement: undefined
+}
+
 
 /**
  * Import modules
@@ -19,11 +29,12 @@ let pollutantBreakpointFinder = require('./utils/PollutantBreakpointFinder');
 let calculator = require('./utils/Calculator');
 let constants = require('./utils/Constants');
 
+
 class AQICalculator {
   constructor() {
     // TODO: refactor reading file to asynchronous function
     breakpoints = JSON.parse(fs.readFileSync('./resources/aqi-breakpoint.json', 'utf8'));
-    generalMessages = JSON.parse(fs.readFileSync('./resources/aqi-general-messages.json', 'utf8'));  
+    generalMessages = JSON.parse(fs.readFileSync('./resources/aqi-general-messages.json', 'utf8'));
     specificMessages = JSON.parse(fs.readFileSync('./resources/aqi-specific-messages.json', 'utf8'));
   }
 
@@ -33,9 +44,12 @@ class AQICalculator {
       pollutantBreakpointFinder.getConcentrationRangeWithAvgConcentration(pollutantCode, concentration, breakpoints).then((breakpointIndex) => {
         targetBreakpointIndex = breakpointIndex;
         let aqi = calculator.calculateAQI(concentration, targetBreakpointIndex);
-        resolve(aqi);
+
+        return aqi;
       }, (err) => {
         reject(err);
+      }).then((aqi) => {
+        
       });
     });
   }
