@@ -16,7 +16,7 @@ let specificMessages = undefined;
  */
 
 let pollutantBreakpointFinder = require('./utils/PollutantBreakpointFinder');
-let dataHelper = require('./utils/DataHelper');
+let constants = require('./utils/Constants');
 
 class AQICalculator {
   constructor() {
@@ -48,5 +48,5 @@ const AQICalculatorInstance = new AQICalculator();
 
 module.exports = {
   AQICalculator: AQICalculatorInstance,
-  PollutantType: dataHelper.POLLUTANT_TYPE
+  PollutantType: constants.POLLUTANT_TYPE
 };
