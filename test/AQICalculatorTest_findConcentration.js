@@ -11,13 +11,13 @@ let breakpoints = JSON.parse(fs.readFileSync('./resources/aqi-breakpoint.json', 
 
 describe('AQICalculator - Find concentration', () => {
   it('should throw invalid pollutant code message when put a pollutant code which is not in the breakpoints list', () => {
-    return AQIBot.AQICalculator.getRegularAQIResult("PM101", 12).catch((message) => {
+    return AQIBot.AQICalculator.getAQIResult("PM101", 12).catch((message) => {
       expect(message).to.equal(constants.MESSAGES.INVALID_MESSAGES.INVALID_POLLUTANT_CODE);
     });
   });
 
   it('should throw invalid concentration message when put a concentration which is not in the breakpoints list', () => {
-    return AQIBot.AQICalculator.getRegularAQIResult(AQIBot.PollutantType.PM10, 1245000).catch((message) => {
+    return AQIBot.AQICalculator.getAQIResult(AQIBot.PollutantType.PM10, 1245000).catch((message) => {
       expect(message).to.equal(constants.MESSAGES.INVALID_MESSAGES.INVALID_CONCENTRATION_RANGE);
     });
   });
@@ -48,5 +48,19 @@ describe('AQICalculator - Find concentration', () => {
       };
       expect(JSON.stringify(result)).to.equal(JSON.stringify(expectedBreakpointConcentration));
     });
-  })
+  });
+
+  it('should get correct PM10 breakpoint range with PM10 at 135 ug/m3', () => {
+    return pollutantBreakpointFinder.getConcentrationRangeWithAvgConcentration(AQIBot.PollutantType.PM10, 135, breakpoints).then((result) => {
+      let expectedBreakpointConcentration = {
+        "min": 55,
+        "max": 154,
+        "index": {
+          "min": 51,
+          "max": 100
+        }
+      };
+      expect(JSON.stringify(result)).to.equal(JSON.stringify(expectedBreakpointConcentration));
+    });
+  });
 });
