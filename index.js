@@ -1,4 +1,5 @@
 let fs = require('fs');
+let Q = require('q');
 const chalk = require('chalk');
 
 /**
@@ -12,29 +13,16 @@ let specificMessages = undefined;
 
 class AQICalculator {
   constructor() {
-    let promises = [() => {
-      fs.readFile('./resources/aqi-breakpoint.json', 'utf8', (err, data) => {
-        breakpoints = data;
-        return Q.resolve(breakpoints);
-      });
-    }, () => {
-      fs.readFile('./resources/aqi-general-messages.json', 'utf8', (err, data) => {
-        generalMessages = data;
-        return Q.resolve(generalMessages);
-      });
-    }, () => {
-      fs.readFile('./resources/aqi-specific-messages.json', 'utf8', (err, data) => {
-        specificMessages = data;
-        return Q.resolve(specificMessages);
-      });
-    }];
-    Q.all(promises).then(() => {
-      return;
-    });
+    // TODO: refactor reading file to asynchronous function
+    breakpoints=  fs.readFileSync('./resources/aqi-breakpoint.json', 'utf8');
+    generalMessages = fs.readFileSync('./resources/aqi-general-messages.json', 'utf8');
+    specificMessages = fs.readFileSync('./resources/aqi-specific-messages.json', 'utf8');
+    console.log(chalk.blue('Finish reading files'));
   }
 
   getRegularAQIResult(pollutantCode, concentration) {
     /* Grab concentration object */
+
 
   }
 
@@ -42,9 +30,10 @@ class AQICalculator {
 
   }
 
-  doDummy() {
-    return 'Hello world';
+  viewFile(){
+    console.log(breakpoints);
   }
+
 }
 
 const AQICalculatorInstance = new AQICalculator();
