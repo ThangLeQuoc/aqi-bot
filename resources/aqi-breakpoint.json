@@ -313,46 +313,5 @@
         "max": 300
       }
     }]
-  },
-  {
-    "code": "O3",
-    "unit": "ppb",
-    "period": "1h",
-    "concentrations": [{
-      "min": 125,
-      "max": 164,
-      "index": {
-        "min": 101,
-        "max": 150
-      }
-    }, {
-      "min": 165,
-      "max": 204,
-      "index": {
-        "min": 151,
-        "max": 200
-      }
-    }, {
-      "min": 205,
-      "max": 404,
-      "index": {
-        "min": 201,
-        "max": 300
-      }
-    }, {
-      "min": 405,
-      "max": 504,
-      "index": {
-        "min": 301,
-        "max": 400
-      }
-    }, {
-      "min": 505,
-      "max": 604,
-      "index": {
-        "min": 401,
-        "max": 500
-      }
-    }]
   }
 ]
