@@ -1,13 +1,13 @@
 {
-  "name": "aqi-calculator",
+  "name": "aqi-bot",
   "version": "1.0.0",
-  "description": "AQI Calculator provide a detail result from AQI Calculation. It also support Nowcast.",
+  "description": "AQI Bot provide a detail result from AQI Calculation. It also support Nowcast calculation.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "keywords": [
-    "aqi"
+    "aqi","air quality index"
   ],
   "author": "ThangLeQuoc <silverhair.guy@gmail.com>",
   "license": "ISC",
