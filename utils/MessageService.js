@@ -24,15 +24,18 @@ module.exports = {
 
     let specificMessage;
     specificMessages.forEach((messageByPollutant) => {
-      if (messageByPollutant.code == pollutantCode)
+      if (messageByPollutant.code == pollutantCode) {
         specificMessage = messageByPollutant;
-    });
-    specificMessage.forEach((message) => {
-      if(index >= message.aqiLevel.index.min && index <= message.aqiLevel.index.max){
-        result.healthEffectsStatements = message.aqiLevel.healthEffectsStatements;
-        result.guidanceStatement = message.aqiLevel.guidance;
       }
     });
+    if (specificMessage !== undefined) {
+      specificMessage.aqiLevel.forEach((message) => {
+        if (index >= message.index.min && index <= message.index.max) {
+          result.healthEffectsStatements = message.healthEffectsStatements;
+          result.guidanceStatement = message.guidance;
+        }
+      });
+    }
     return result;
   }
 }

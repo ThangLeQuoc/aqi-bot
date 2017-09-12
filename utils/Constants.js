@@ -101,80 +101,80 @@ let messages = {
     },
     CO: {
       GOOD: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "None",
+        GUIDANCE: "None"
       },
       MODERATE: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "None",
+        GUIDANCE: "None"
       },
       UNHEALTHY_FOR_SENSITIVE_GROUPS: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Increasing likelihood of reduced exercise tolerance due to increased cardiovascular symptoms, such as chest pain, in people with heart disease",
+        GUIDANCE: "People with heart disease, such as angina, should limit heavy exertion and avoid sources of CO, such as heavy traffic"
       },
       UNHEALTHY: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Reduced exercise tolerance due to increased cardiovascular symptoms, such as chest pain, in people with heart disease",
+        GUIDANCE: "People with heart disease, such as angina, should limit moderate exertion and avoid sources of CO, such as heavy traffic"
       },
       VERY_UNHEALTHY: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Significant aggravation of cardiovascular symptoms, such as chest pain, in people with heart disease",
+        GUIDANCE: "People with heart disease, such as angina, should avoid exertion and sources of CO, such as heavy traffic"
       },
       HAZARDOUS: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Serious aggravation of cardiovascular symptoms, such as chest pain, in people with heart disease; impairment of strenuous activities in general population",
+        GUIDANCE: "People with heart disease, such as angina, should avoid exertion and sources of CO, such as heavy traffic; everyone else should limit heavy exertion"
       }
     },
     NO2: {
       GOOD: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "None",
+        GUIDANCE: "None"
       },
       MODERATE: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "None",
+        GUIDANCE: "Unusually sensitive individuals should consider limiting prolonged exertion especially near busy roads"
       },
       UNHEALTHY_FOR_SENSITIVE_GROUPS: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Increasing likelihood of respiratory symptoms, such as chest tightness and breathing discomfort, in people with asthma",
+        GUIDANCE: "People with asthma, children and older adults should limit prolonged exertion especially near busy roads"
       },
       UNHEALTHY: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Increased respiratory symptoms, such as chest tightness and wheezing in people with asthma; possible aggravation of other lung diseases",
+        GUIDANCE: "People with asthma, children and older adults should avoid prolonged exertion near roadways; everyone else should limit prolonged exertion especially near busy roads"
       },
       VERY_UNHEALTHY: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Significant increase in respiratory symptoms, such as wheezing and shortness of breath, in people with asthma; aggravation of other lung diseases",
+        GUIDANCE: "People with asthma, children and older adults should avoid all outdoor exertion; everyone else should avoid prolonged exertion especially near busy roads"
       },
       HAZARDOUS: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Severe respiratory symptoms, such as wheezing and shortness of breath, in people with asthma; increased aggravation of other lung diseases; possible respiratory effects in general population",
+        GUIDANCE: "People with asthma, children and older adults should remain indoors; everyone else should avoid all outdoor exertion"
       }
     },
     SO2: {
       GOOD: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "None",
+        GUIDANCE: "None"
       },
       MODERATE: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "None",
+        GUIDANCE: "None"
       },
       UNHEALTHY_FOR_SENSITIVE_GROUPS: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Increasing likelihood of respiratory symptoms, such as chest tightness and breathing discomfort, in people with asthma",
+        GUIDANCE: "People with asthma should consider limiting outdoor exertion"
       },
       UNHEALTHY: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Increased respiratory symptoms, such as chest tightness and wheezing in people with asthma; possible aggravation of other lung diseases",
+        GUIDANCE: "Children, people with asthma, or other lung diseases, should limit outdoor exertion"
       },
       VERY_UNHEALTHY: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Significant increase in respiratory symptoms, such as wheezing and shortness of breath, in people with asthma; aggravation of other lung diseases",
+        GUIDANCE: "Children, people with asthma, or other lung diseases should avoid outdoor exertion; everyone else should reduce outdoor exertion"
       },
       HAZARDOUS: {
-        HEALTH_EFFECTS_STATEMENTS: "",
-        GUIDANCE: ""
+        HEALTH_EFFECTS_STATEMENTS: "Severe respiratory symptoms, such as wheezing and shortness of breath, in people with asthma; increased aggravation of other lung diseases; possible respiratory effects in general population",
+        GUIDANCE: "Children, people with asthma, or other lung diseases, should remain indoors; everyone else should avoid outdoor exertion"
       }
     }
   }
