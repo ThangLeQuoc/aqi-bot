@@ -1,7 +1,6 @@
 let chai = require('chai');
 let expect = chai.expect;
 let fs = require('fs');
-const chalk = require('chalk');
 
 let messageService = require('../utils/MessageService');
 let calculator = require('../utils/Calculator');
