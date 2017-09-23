@@ -1,6 +1,6 @@
 {
   "name": "aqi-bot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AQI Bot provide a detail result from AQI Calculation. It also support Nowcast calculation.",
   "main": "index.js",
   "scripts": {
