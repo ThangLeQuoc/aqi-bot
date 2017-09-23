@@ -4,7 +4,6 @@ let Q = require('q');
 let targetConcentrationRange;
 let constants = require('./Constants');
 
-const chalk = require('chalk');
 
 module.exports = {
   /**
