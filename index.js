@@ -58,7 +58,10 @@ class AQICalculator {
   }
 
   getNowcastAQIResult(pollutantCode, concentrations) {
-    //TODO: I'll ship this shit later, trust me !
+    return Q.Promise((resolve, reject) => {
+      
+
+    });
   }
 }
 
