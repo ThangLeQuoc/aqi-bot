@@ -1,21 +1,29 @@
 {
   "name": "aqi-bot",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "AQI Bot provide a detail result from AQI Calculation. It also support Nowcast calculation.",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
-  "url": "https://github.com/ThangLeQuoc/aqi-bot",
+  "homepage": "https://github.com/ThangLeQuoc/aqi-bot",
   "keywords": [
     "aqi",
     "air quality index"
   ],
-  "author": "ThangLeQuoc <silverhair.guy@gmail.com>",
+  "author": {
+    "name": "ThangLeQuoc",
+    "email": "silverhair.guy@gmail.com",
+    "url": "https://github.com/ThangLeQuoc/"
+  },
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
     "q": "^1.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ThangLeQuoc/aqi-bot.git"
   }
 }

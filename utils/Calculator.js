@@ -1,5 +1,6 @@
 let Q = require('q');
 let constants = require('./Constants');
+let truncator = require('./PollutantConcentrationTruncator');
 
 let isValidNowcastData = (concentrations) => {
   let missingData = 0;
@@ -82,8 +83,11 @@ module.exports = {
           totalWeight += Math.pow(weight, i);
         }
       }
-      
-
-    })
+      if (totalWeight != 0) {
+        let nowcastConcentration = truncator.truncatePollutantConcentration(pollutantCode, totalConcentrationWithWeight / totalConcentrationWithWeight);
+        resolve(nowcastConcentration);
+      }
+      resolve(0);
+    });
   }
 }
