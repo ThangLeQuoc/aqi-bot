@@ -60,8 +60,8 @@ class AQICalculator {
   getNowcastAQIResult(pollutantCode, concentrations) {
     return Q.Promise((resolve, reject) => {
       calculator.calculateNowcastConcentration(pollutantCode, concentrations).then((nowcastConcentration) => {
-        this.getAQIResult(pollutantCode, concentrations).then((result) => {
-          
+        this.getAQIResult(pollutantCode, nowcastConcentration).then((result) => {
+          resolve(result);
         });
       }).catch((err) => {
         reject(err);

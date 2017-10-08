@@ -16,12 +16,12 @@ let getWeightFactor = (pollutantCode, concentrations) => {
   let minConcentration = Number.MAX_VALUE;
   concentrations.forEach((concentration) => {
     if (concentration < 0)
-      continue;
+      return;
     else {
       if (concentration > maxConcentration)
-        maxConcentration = i;
+        maxConcentration = concentration;
       if (concentration < minConcentration) {
-        minConcentration = i;
+        minConcentration = concentration;
       }
     }
   });
@@ -60,14 +60,6 @@ module.exports = {
         reject('Invalid Nowcast pollutant');
       if (!isValidNowcastData(concentrations))
         reject('Invalid Nowcast Concentration');
-      if (pollutantCode == constants.POLLUTANT_TYPE.PM10 || pollutantCode == constants.POLLUTANT_TYPE.PM25) {
-        if (concentrations.length < 12)
-          reject('Insufficient data for Nowcast Calculation');
-      }
-      if (pollutantCode == constants.POLLUTANT_TYPE.O3) {
-        if (concentrations.length < 8)
-          reject('Insufficient data for Nowcast Calculation');
-      }
 
 
       let totalConcentrationWithWeight = 0;
@@ -84,10 +76,11 @@ module.exports = {
         }
       }
       if (totalWeight != 0) {
-        let nowcastConcentration = truncator.truncatePollutantConcentration(pollutantCode, totalConcentrationWithWeight / totalConcentrationWithWeight);
+        let nowcastConcentration = truncator.truncatePollutantConcentration(pollutantCode, totalConcentrationWithWeight / totalWeight);
         resolve(nowcastConcentration);
       }
-      resolve(0);
+      
+      resolve("");
     });
   }
 }
