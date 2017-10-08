@@ -34,7 +34,7 @@ Currently, it's sticking with **Q Promise**
 npm install aqi-bot q --save
 ```
 
-And extract the `aqi-bot`
+Extract the `aqi-bot` to use it
 ```
 let aqibot = require('aqi-bot');
 ```
