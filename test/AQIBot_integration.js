@@ -58,9 +58,12 @@ describe('AQIBot - Integration Test', () => {
     });
   });
 
-  
-
-
-
-
+  it('should get correct result for PM2.5 when calculate nowcast with some missing data', () => {
+    let concentrationData = [30.5, 12.5, -1, 30, 32.4, 31.1, 28.2, 30.7, 32.8, 32.6, 33.1, 28.5];
+    return AQIBot.AQICalculator.getNowcastAQIResult(PollutantType.PM25, concentrationData).then(result => {
+      expect(result.concentration).to.equal(25.4);
+      expect(result.aqi).to.equal(79);
+      expect(result.category).to.equal(constants.AQI_CATEGORY.MODERATE);
+    });
+  });
 });
