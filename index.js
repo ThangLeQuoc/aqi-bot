@@ -1,17 +1,11 @@
 let fs = require('fs');
 let path = require('path');
-let Q = require('q');
 
-
-/**
- * Declare variables
- */
 let instance = null;
 let targetBreakpointIndex = undefined;
 let breakpoints = undefined;
 let generalMessages = undefined;
 let specificMessages = undefined;
-
 
 /**
  * Import modules
@@ -21,10 +15,8 @@ let messageService = require('./utils/MessageService');
 let calculator = require('./utils/Calculator');
 let constants = require('./utils/Constants');
 
-
 class AQICalculator {
   constructor() {
-    // TODO: refactor reading file to asynchronous function
     breakpoints = JSON.parse(fs.readFileSync(path.join(__dirname, 'resources/aqi-breakpoint.json'), 'utf8'));
     generalMessages = JSON.parse(fs.readFileSync(path.join(__dirname, 'resources/aqi-general-messages.json'), 'utf8'));
     specificMessages = JSON.parse(fs.readFileSync(path.join(__dirname, 'resources/aqi-specific-messages.json'), 'utf8'));
@@ -32,7 +24,7 @@ class AQICalculator {
 
   getAQIResult(pollutantCode, concentration) {
     /* Grab concentration object */
-    return Q.Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       pollutantBreakpointFinder.getConcentrationRangeWithAvgConcentration(pollutantCode, concentration, breakpoints).then((breakpointIndex) => {
         targetBreakpointIndex = breakpointIndex;
         let aqi = calculator.calculateAQI(concentration, targetBreakpointIndex);
@@ -58,7 +50,7 @@ class AQICalculator {
   }
 
   getNowcastAQIResult(pollutantCode, concentrations) {
-    return Q.Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       calculator.calculateNowcastConcentration(pollutantCode, concentrations).then((nowcastConcentration) => {
         this.getAQIResult(pollutantCode, nowcastConcentration).then((result) => {
           resolve(result);

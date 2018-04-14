@@ -1,19 +1,15 @@
-let Q = require('q');
-
-
 let targetConcentrationRange;
 let constants = require('./Constants');
-
 
 module.exports = {
   /**
    * Find concentration range with average concentration of pollutant
-   * @param {pollutantCode} pollutantCode (ex: PM10, PM2.5) 
-   * @param {concentration} concentration 
-   * @param {breakpoints} breakpoints object 
+   * @param {pollutantCode} pollutantCode (ex: PM10, PM2.5)
+   * @param {concentration} concentration
+   * @param {breakpoints} breakpoints object
    */
   getConcentrationRangeWithAvgConcentration(pollutantCode, concentration, breakpoints) {
-    return new Q.Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       let targetBreakpoint;
       breakpoints.forEach((breakpoint) => {
         if (breakpoint.code === pollutantCode) {

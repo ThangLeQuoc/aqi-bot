@@ -1,4 +1,3 @@
-let Q = require('q');
 let constants = require('./Constants');
 let truncator = require('./PollutantConcentrationTruncator');
 
@@ -38,12 +37,11 @@ let getWeightFactor = (pollutantCode, concentrations) => {
   }
 }
 
-
 module.exports = {
   /**
    * Calculate the Air Quality Index base on concentration
-   * @param {concentration} concentration 
-   * @param {target breakpoint} breakpoint 
+   * @param {concentration} concentration
+   * @param {target breakpoint} breakpoint
    */
   calculateAQI(concentration, breakpoint) {
     let cHigh = breakpoint.max;
@@ -55,17 +53,15 @@ module.exports = {
   },
 
   calculateNowcastConcentration(pollutantCode, concentrations) {
-    return Q.Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       if (pollutantCode !== constants.POLLUTANT_TYPE.O3 && pollutantCode !== constants.POLLUTANT_TYPE.PM10 && pollutantCode !== constants.POLLUTANT_TYPE.PM25)
-        reject('Invalid Nowcast pollutant');
+        reject('Invalid Nowcast Pollutant');
       if (!isValidNowcastData(concentrations))
         reject('Invalid Nowcast Concentration');
-
 
       let totalConcentrationWithWeight = 0;
       let weight = getWeightFactor(pollutantCode, concentrations);
       let totalWeight = 0;
-
 
       for (let i = 0; i < concentrations.length; i++) {
         if (concentrations[i] < 0)
@@ -79,7 +75,6 @@ module.exports = {
         let nowcastConcentration = truncator.truncatePollutantConcentration(pollutantCode, totalConcentrationWithWeight / totalWeight);
         resolve(nowcastConcentration);
       }
-      
       resolve("");
     });
   }
