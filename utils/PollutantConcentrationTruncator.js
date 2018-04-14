@@ -1,7 +1,6 @@
 let constants = require('./Constants');
 let PollutantType = constants.POLLUTANT_TYPE;
 
-
 let self = module.exports = {
   truncatePollutantConcentration(pollutantCode, concentration) {
     if (pollutantCode === PollutantType.PM10 || pollutantCode === PollutantType.SO2 || pollutantCode === PollutantType.NO2)
