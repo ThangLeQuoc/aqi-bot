@@ -1,4 +1,4 @@
-let fs = require('fs');
+let fs = require('file-system');
 let path = require('path');
 
 let instance = null;
