@@ -28,10 +28,8 @@ This project is intended to community target for free use. The author is not ass
 | SO2     |  Sulfur Dioxide  | ppb| SO2 | :heavy_check_mark:| :x:|:heavy_check_mark:|:heavy_check_mark:|
 | NO2     |  Nitrogen Dioxide  | ppb| NO2 | :heavy_check_mark:| :x:|:heavy_check_mark:|:heavy_check_mark:|
 ## Installation
-Currently, it's sticking with **Q Promise** 
-
 ```
-npm install aqi-bot q --save
+npm install aqi-bot --save
 ```
 
 Extract the `aqi-bot` to use it
@@ -100,7 +98,7 @@ The first value in the array is the avg value in the current hour, and the upcom
 
 If the hour doesn't have data, replace missing data in the hour with **-1**
 ##### Example Nowcast Dataset for PM10: (have some missing data in hour)
-| Hour | Avg Concentration 
+| Hour | Avg Concentration
 | ---- |:-------------:|
 | 14      | 64 ppb |
 | 13      | 63 ppb |
