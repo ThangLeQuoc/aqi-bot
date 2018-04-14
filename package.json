@@ -1,6 +1,6 @@
 {
   "name": "aqi-bot",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "AQI Bot provide a detail result from AQI Calculation. It also support Nowcast calculation.",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,7 @@
     "type": "git",
     "url": "git://github.com/ThangLeQuoc/aqi-bot.git"
   },
-  "dependencies": {}
+  "dependencies": {
+    "file-system": "^2.2.2"
+  }
 }
