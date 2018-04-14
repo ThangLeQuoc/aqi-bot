@@ -14,8 +14,11 @@ This project is intended to community target for free use. The author is not ass
 
 ## Highlights
 - Calculate AQI from raw concentration
-- The result from calculation includes Air Quality Index, AQI Category, General Message, Specific Health Effects Statements for the pollutant and the corresponding guidance message.
-- Support Nowcast Concentration ( **#soon** in the next release )
+- The result from calculation includes Air Quality Index, AQI Category, General Message, Specific Health Effects Statements for the pollutant and the corresponding guidance message
+- Support various pollutants
+- Support Nowcast Concentration
+- The AQI Calculation approach issued by US EPA by far is the most sensible way I've seen after working with various AQI calculation formulas.
+
 
 ### Support the following pollutants
 
@@ -39,7 +42,7 @@ let aqibot = require('aqi-bot');
 ## Quick Usage
 
 #### For Regular AQI Calculation
-2 required parameter is *pollutant code* and *concentration*
+2 required parameter is *pollutant code* and *concentration*. The unit of measurement for the pollutant code is as defined in the pollutants specification table.
 
 ```
 aqibot.AQICalculator.getAQIResult("PM10", 125).then((result) => {
@@ -49,10 +52,8 @@ aqibot.AQICalculator.getAQIResult("PM10", 125).then((result) => {
   })
 ```
 
-Or you might use the pollutant code constants from the aqibot:
+Or you might use the pollutant code constants from the *aqibot*:
 `aqibot.AQICalculator.getAQIResult(aqibot.PollutantType.PM10, concentration)`
-
-
 
 And the `result` object there contains all the information that you need
 
@@ -69,6 +70,8 @@ And the `result` object there contains all the information that you need
 ```
 
 #### For Nowcast AQI Calculation
+2 required parameter is *pollutant code* and an array of average *concentration* for each hour recorded (more explanation below). The unit of measurement for the pollutant code is as defined in the pollutants specification table.
+
 ```
 /* Example Data for Nowcast PM2.5 12h period - 30.5, 12.5, 14.3, 30, 32.4, 31.1, 28.2, 30.7, 32.8, 32.6, 33.1, 28.5 */
 
@@ -94,7 +97,7 @@ Please note that the concentration in `result` object here is the *Nowcast Conce
 }
 ```
 
-The first value in the array is the avg value in the current hour, and the upcoming element in the array represent one step hour before current hour.
+The first number in the array is the average concentration value of the selected hour, and the upcoming element in the array represent one step of hour before the selected hour.
 
 If the hour doesn't have data, replace missing data in the hour with **-1**
 ##### Example Nowcast Dataset for PM10: (have some missing data in hour)
@@ -136,12 +139,6 @@ Presume that you want to calculate Nowcast AQI for PM10 at **14**, the data arra
     "guidanceStatement": "Unusually sensitive people should consider reducing prolonged or heavy exertion"
 }
 ```
-
-
-
-
-
-
 
 # AQI Calculation Turtorial
 ## US EPA AQI Breakpoint
