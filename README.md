@@ -6,7 +6,7 @@
 </h1>
 
 # NPM AQI Calculator
-
+[![npm version](https://badge.fury.io/js/aqi-bot.svg)](https://badge.fury.io/js/aqi-bot)
 ### Foreword
 All methods, constraints use in this project follows **US EPA AQI Calculation Method** (which includes breakpoint table and calculation formulas) . Since each country issues different AQI calculation methods, using this package might be inappropriate, consider your usage.
 
